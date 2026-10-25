@@ -1,0 +1,18 @@
+[cluster]
+virtual_nodes = 128
+replication_factor = 1
+
+[[nodes]]
+id = "node-a"
+host = "127.0.0.1"
+port = 7001
+
+[[nodes]]
+id = "node-b"
+host = "127.0.0.1"
+port = 7002
+
+[[nodes]]
+id = "node-c"
+host = "127.0.0.1"
+port = 7003
