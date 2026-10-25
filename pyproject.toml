@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "distributed-cache"
+version = "0.1.0"
+description = "An educational, binary-safe distributed in-memory cache"
+requires-python = ">=3.12"
+dependencies = ["typer>=0.12,<1"]
+license = "MIT"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.24", "ruff>=0.9"]
+
+[project.scripts]
+distributed-cache = "distributed_cache.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/distributed_cache"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC"]
